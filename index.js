@@ -82,7 +82,7 @@ var setUrl = function (url) { return __awaiter(void 0, void 0, void 0, function 
  * @returns
  */
 var main = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, _b;
+    var _a, _b, news;
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0: return [4 /*yield*/, init()];
@@ -93,10 +93,28 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                 _c.sent();
                 if (!webDriver)
                     return [2 /*return*/];
+                // タイトル取得
                 _b = (_a = console).log;
                 return [4 /*yield*/, webDriver.getTitle()];
             case 3:
+                // タイトル取得
                 _b.apply(_a, [_c.sent()]);
+                return [4 /*yield*/, webDriver.findElements(selenium_webdriver_1.By.className('post'))];
+            case 4:
+                news = _c.sent();
+                news.forEach(function (element) { return __awaiter(void 0, void 0, void 0, function () {
+                    var _a, _b;
+                    return __generator(this, function (_c) {
+                        switch (_c.label) {
+                            case 0:
+                                _b = (_a = console).log;
+                                return [4 /*yield*/, element.getText()];
+                            case 1:
+                                _b.apply(_a, [_c.sent()]);
+                                return [2 /*return*/];
+                        }
+                    });
+                }); });
                 return [2 /*return*/];
         }
     });

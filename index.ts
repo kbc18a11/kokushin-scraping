@@ -41,6 +41,12 @@ const main = async () => {
 
   // タイトル取得
   console.log(await webDriver.getTitle());
+
+  const news = await webDriver.findElements(By.className('post'));
+
+  news.forEach(async (element) => {
+    console.log(await element.getText());
+  });
 };
 
 main();
