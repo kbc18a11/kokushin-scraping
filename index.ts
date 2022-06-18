@@ -22,9 +22,9 @@ const init = async () => {
 /**
  * スクレイピング先のURLの設定
  */
-const setUrl = (url: string) => {
+const setUrl = async (url: string) => {
   if (webDriver) {
-    webDriver.get(url);
+    await webDriver.get(url);
   }
 }
 
@@ -34,12 +34,13 @@ const setUrl = (url: string) => {
  * @returns 
  */
 const main = async () => {
-  init();
-  setUrl('https://kokushin-u.jp/');
+  await init();
+  await setUrl('https://kokushin-u.jp/');
 
   if (!webDriver) return;
 
-  console.log(await webDriver.wait(until.elementLocated(By.name('title')), 5000).getText());
+  // タイトル取得
+  console.log(await webDriver.getTitle());
 };
 
 main();

@@ -63,11 +63,19 @@ var init = function () { return __awaiter(void 0, void 0, void 0, function () {
 /**
  * スクレイピング先のURLの設定
  */
-var setUrl = function (url) {
-    if (webDriver) {
-        webDriver.get(url);
-    }
-};
+var setUrl = function (url) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (!webDriver) return [3 /*break*/, 2];
+                return [4 /*yield*/, webDriver.get(url)];
+            case 1:
+                _a.sent();
+                _a.label = 2;
+            case 2: return [2 /*return*/];
+        }
+    });
+}); };
 /**
  * メイン関数
  *
@@ -77,14 +85,17 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
     var _a, _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
-            case 0:
-                init();
-                setUrl('https://kokushin-u.jp/');
+            case 0: return [4 /*yield*/, init()];
+            case 1:
+                _c.sent();
+                return [4 /*yield*/, setUrl('https://kokushin-u.jp/')];
+            case 2:
+                _c.sent();
                 if (!webDriver)
                     return [2 /*return*/];
                 _b = (_a = console).log;
-                return [4 /*yield*/, webDriver.wait(selenium_webdriver_1.until.elementLocated(selenium_webdriver_1.By.name('title')), 5000).getText()];
-            case 1:
+                return [4 /*yield*/, webDriver.getTitle()];
+            case 3:
                 _b.apply(_a, [_c.sent()]);
                 return [2 /*return*/];
         }
