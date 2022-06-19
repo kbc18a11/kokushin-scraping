@@ -1,4 +1,4 @@
-import { Builder, By, Capabilities, Key, until, WebDriver } from 'selenium-webdriver';
+import { Builder, By, Capabilities, WebDriver } from 'selenium-webdriver';
 
 let webDriver: WebDriver | null = null;
 
