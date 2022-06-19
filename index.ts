@@ -42,8 +42,10 @@ const main = async () => {
   // タイトル取得
   console.log(await webDriver.getTitle());
 
+  // ニュース一覧取得
   const news = await webDriver.findElements(By.className('post'));
 
+  // ニュース内容の表示
   news.forEach(async (element) => {
     console.log(await element.getText());
   });
